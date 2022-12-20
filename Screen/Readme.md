@@ -8,32 +8,30 @@ To set this up you'll need:
 - Databank
 - Screen (any kind)
 - Industry Unit (any kind)
-- Two (2) Containers
+- Output Container
 
-Deploy your containers, machine and programming devices. Connect everything to the programming board.
+Deploy your container, machine and programming devices. Connect everything to the programming board.
 If you're using Container Hub, that's fine, just make sure everything is connected to the proper slot.
 
 The slot setup is as follows:
 
-- slot1: inbox (Container/Container Hub)
-- slot2: outbox (Container/Container Hub)
-- slot3: machine (Industry Unit)
-- slot4: db (Databank)
-- slot5: screen (Screen)
+- slot1: outbox (Container/Container Hub)
+- slot2: machine (Industry Unit)
+- slot3: db (Databank)
+- slot4: screen (Screen)
 
 In the Board folder, you'll find all of the scripts that need to be set up on the programming board.
 
 - library_onStart.lua: Add code to library.onStart() filter
 - unit_onStart.lua: Add code to unit.onStart() filter
+- unit_onStop.lua: Add code to unit.onStop() filter
 - unit_onTimer_Tick.lua: Add code to unit.onTimer() filter with argument "Tick" (without quotes)
 - outbox_onContentUpdate.lua: Add code to outbox.onContentUpdate() filter
-- inbox_onContentUpdate.lua: Add code to inbox.onContentUpdate() filter
 
 Make sure the screen is turned on and then activate the programming board. If everything is set up 
-correctly the Industry Unit's recipe and status, the two containers and your targets list should be 
+correctly the Industry Unit's recipe and status, the container and your targets list should be 
 displayed immediately. Every ~30 seconds a job runs to collect the contents of one of your containers. 
-If it fails to index the contents, it will try again later. Until the contents are successfully 
-indexed, the contents will not show up on the display. It may take upwards of 90 seconds to populate 
+If it fails to index the contents, it will try again later. Until the contents aa few minutes to populate 
 the container contents, so be patient.
 
 To set up what your production targets will be, you'll edit the unit_onStart script, or unit.onScript() 
@@ -48,8 +46,6 @@ t:addTarget(2014531313,2000) --Polycarb (This item requires Chem Ind. be connect
 
 --ROADMAP
 
-- v0.6 - State management logic
-
 - v0.7 - Additional machine details display
 
 - v0.8 - Pretty-up display graphics
@@ -59,6 +55,9 @@ t:addTarget(2014531313,2000) --Polycarb (This item requires Chem Ind. be connect
 - v1.0RC1 - Public
 
 --CHANGELOG
+
+FactoryMake v0.6
+- State management logic
 
 FactoryMake v0.5
 - Refactor
